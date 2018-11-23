@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:label="HomeActivity" />
+            android:label="Icey Micey" />
         <activity android:name=".SignUpActivity">
 
         </activity>

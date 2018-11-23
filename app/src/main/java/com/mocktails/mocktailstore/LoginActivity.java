@@ -54,20 +54,15 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d("----------------3", "making api call");
                     result.callApi("POST", getString(R.string.mocktailstore) + "account/login", resp.toString());
                     Log.d("----------------3", "made api call");
-                    Toast.makeText(getApplicationContext(), "Singing in.... Please wait ", Toast.LENGTH_SHORT).show();
-//                    new Handler().postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-                            Log.d("----------------3", "received call : " + result.isFinished() + " : " + result.getResult());
-                            if(!result.getResult().equalsIgnoreCase("error"))
-                            {
-                                shared.edit().putString(getString(R.string.login_id), result.getResult()).commit();
-                                finish();
-                                startActivity(new Intent(LoginActivity.this, HomeActivity.class).putExtra("userId",result.getResult()));
-                            }
-                    Snackbar.make(view, "Error Occoured please try again later", Snackbar.LENGTH_LONG).show();
-//                          }
-//                    }, 3000);
+                    Snackbar.make(view, "Singing in pdlease wait ", Toast.LENGTH_SHORT).show();
+                    Log.d("----------------3", "received call : " + result.isFinished() + " : " + result.getResult());
+                    if(!result.getResult().equalsIgnoreCase("error"))
+                    {
+                        shared.edit().putString(getString(R.string.login_id), result.getResult()).commit();
+                        finish();
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class).putExtra("userId",result.getResult()));
+                    }
+                    Snackbar.make(view, "No such user found please try again later", Snackbar.LENGTH_LONG).show();
                 }
             }
         });

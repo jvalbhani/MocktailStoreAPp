@@ -7,8 +7,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_login">IceyMicey</string>
-    <string name="mocktailstore">http://10.100.70.34:8090/mocktail-store/api/v1/</string>
+    <string name="title_activity_login">Icey Micey</string>
+    <string name="mocktailstore">http://192.168.43.161:8090/mocktail-store/api/v1/</string>
     <string name="login">mocktilstore.userlogin</string>
     <string name="login_id">mocktilstore.userlogin.id</string>
+    <string name="about_icey_micey">Icey Micey is Non-Alcoholic beverages drink bar on the wheels, we are more formally known at Ahmedabad where we provide fruits shots like jamun shoot, falsa shots, kiwi shots and shakes like oreo chocolate shakes, KitKat shakes, mango shakes for coffee lovers we provide special cold coffee, chocolate ice coffee, cocktail, various king of mojitos, ice tea, fruit mix and many more please see our menu card We take pride in supporting local Ahmedabad, we purchase hand-picked fresh fruits from a local market and serve you the best quality fruit juice and fruit items. Be sure to check out our drink menu options for a perfect serving, including non-alcoholic cocktails. Beverage catering is what our professional staff is prepared to knock out of the park for your specific needs</string>
 </resources>

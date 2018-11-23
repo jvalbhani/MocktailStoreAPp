@@ -17,29 +17,58 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewCarousel"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginStart="8dp"
+            android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:minHeight="200dp"
-            app:layout_constraintBottom_toTopOf="@+id/homeRelativeView"
+            android:isScrollContainer="true"
+            app:layout_constraintBottom_toTopOf="@+id/homeConstraintView"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_min="200dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            android:id="@+id/homeRelativeView"
-            android:minHeight="500dp"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/homeConstraintView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_height="294dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewCarousel"/>
+            app:layout_constraintTop_toBottomOf="@+id/viewCarousel">
+
+
+            <TextView
+                android:id="@+id/about"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/black"
+                android:fontFamily="cursive"
+                android:padding="5dp"
+                android:text="About Icey Micey"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="false"
+                android:elevation="5dp"
+                android:padding="8dp"
+                android:text="@string/about_icey_micey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about" />"
+
+            p:layout_constraintStart_toStartOf="paren />
+        </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

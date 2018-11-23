@@ -3,31 +3,22 @@ package com.mocktails.mocktailstore.Fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.mocktails.mocktailstore.R;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeFragment.OnFragmentInteractionListener} interface
+ * {@link BlogDetailFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link BlogDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class BlogDetailFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,7 +30,7 @@ public class HomeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public HomeFragment() {
+    public BlogDetailFragment() {
         // Required empty public constructor
     }
 
@@ -49,11 +40,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment BlogDetailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static BlogDetailFragment newInstance(String param1, String param2) {
+        BlogDetailFragment fragment = new BlogDetailFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -73,8 +64,8 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        return inflater.inflate(R.layout.home_fragment, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_blog_detail, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -87,14 +78,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        ViewPager viewPager = getActivity().findViewById(R.id.viewCarousel);
-        List<Integer> imageList = Arrays.asList(new Integer[]{R.mipmap.icey_micey_slide_01, R.mipmap.icey_micey_slide_02, R.mipmap.icey_micey_slide_03, R.mipmap.icey_micey_slide_04 });
-        viewPager.setAdapter(new carouselViewAdapter(getContext(), imageList));
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override
@@ -116,51 +105,5 @@ public class HomeFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    public class carouselViewAdapter extends PagerAdapter
-    {
-        private List<Integer> imageUrl;
-        private Context context;
-        public carouselViewAdapter(Context context, List<Integer> imageUrl)
-        {
-            this.imageUrl = imageUrl;
-            this.context = context;
-        }
-
-        @Override
-        public int getCount() {
-            return imageUrl.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
-            return view.equals(o);
-        }
-        int count = 0;
-        @NonNull
-        @Override
-        public Object instantiateItem(@NonNull ViewGroup container, int position) {
-            LayoutInflater inflater = LayoutInflater.from(context);
-            final View v = inflater.inflate(R.layout.carousel_view, container, false);
-            ImageView myImage = (ImageView) v .findViewById(R.id.imageView);
-            myImage.setImageResource(imageUrl.get(position));
-            container.addView(v);
-            return v;
-        }
-
-
-
-        int coun = 0;
-        @Override
-        public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-            container.removeView((View) object);
-        }
-
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return position+"";
-        }
     }
 }
